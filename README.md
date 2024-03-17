@@ -1,31 +1,45 @@
-# React + TypeScript + Vite
+# 사진 해시태그 추천 웹사이트 프로젝트 - Waffle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+이 프로젝트는 사용자가 사진을 업로드하면 적절한 해시태그를 추천해주는 웹사이트 개발 프로젝트입니다.
 
-Currently, two official plugins are available:
+## 프론트엔드 팀 소개
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| 이름   | 역할    | 기능 설명                                                                                     | 깃허브 주소                               |
+| ------ | ------- | --------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| 권오영 | PM      | - 프로젝트 세팅 및 리팩토링<br>- Oauth 로그인<br>- IDE 환경 WebSocket 기능                    | [oyeong011](https://github.com/oyeong011) |
+| 이민지 | FE-Lead | - Credential 로그인<br>- 마이 대시보드, 커뮤니티 상세페이지<br>- IDE 코드 에디터 및 동시 편집 | [LeeMinJii](https://github.com/LeeMinJii) |
 
-## Expanding the ESLint configuration
+## 핵심 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+사진을 업로드하면 AI 기반으로 적절한 해시태그를 추천해주며, 추천 받은 해시태그를 이용해 사진을 소셜 미디어에 직접 공유할 수 있습니다.
 
-- Configure the top-level `parserOptions` property like this:
+## 사용 기술
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Frontend**: React, Tailwind CSS, Vite
+- **Backend**:
+- **Database**:
+- **Key Libraries**: Axios, MSW, Amazon S3, 카카오맵 API
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# HashTag-FrontEnd-Pwa
+## 프로젝트 아키텍처
+
+(아키텍처 설명 또는 다이어그램 링크)
+
+## 프로젝트 세팅
+
+(프로젝트를 세팅하는 방법에 대한 설명)
+
+## 주요 기능
+
+- **사진 업로드 및 처리**: 사용자는 웹사이트를 통해 자신의 사진을 업로드할 수 있습니다.
+- **해시태그 생성 알고리즘**: 업로드된 사진을 분석하여, 그 사진에 가장 어울리는 해시태그를 제안합니다.
+- **소셜 미디어 통합**: 추천받은 해시태그를 이용해 사진을 소셜 미디어에 직접 공유할 수 있습니다.
+
+## 결과 보고서
+
+(프로젝트 결과물에 대한 보고서 링크)
+
+## 시연 영상
+
+(프로젝트 시연 영상 링크)
+
+# hashtag-frontend
