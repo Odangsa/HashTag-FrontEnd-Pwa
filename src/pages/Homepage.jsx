@@ -1,8 +1,13 @@
+import Navbar from '../components/home/Navbar.jsx';
+import RealtimePlaceSearch from '../components/home/PlaceSearch.jsx';
+import MyFilePond from '../components/home/UploadImage.jsx';
+
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the home page</p>
+    <div className="bg-slate-500">
+      <Navbar />
+      <MyFilePond />
+      <RealtimePlaceSearch />
     </div>
   );
 };
