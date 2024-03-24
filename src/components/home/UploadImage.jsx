@@ -1,48 +1,86 @@
-import React, { useState } from 'react';
-import { FilePond } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
-// import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Dropzone, FileMosaic } from '@files-ui/react';
+import * as React from 'react';
 
-function MyFilePond() {
-  const [files, setFiles] = useState([]);
+const BASE_URL = 'https://www.myserver.com';
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+export default function ImageUploader() {
+  const [extFiles, setExtFiles] = React.useState([]);
+
+  const updateFiles = (incommingFiles) => {
+    console.log('incomming files', incommingFiles);
+    setExtFiles(incommingFiles);
   };
-
-  const handleProcessFile = (error, file) => {
-    if (error) {
-      console.error(error);
-      return;
-    }
-    // 파일 미리보기 URL 추가
-    setFiles((prevFiles) => [...prevFiles, file.file]);
+  const onDelete = (id) => {
+    setExtFiles(extFiles.filter((x) => x.id !== id));
   };
-
+  const handleStart = (filesToUpload) => {
+    console.log('advanced demo start upload', filesToUpload);
+  };
+  const handleFinish = (uploadedFiles) => {
+    console.log('advanced demo finish upload', uploadedFiles);
+  };
+  const handleAbort = (id) => {
+    setExtFiles(
+      extFiles.map((ef) => {
+        if (ef.id === id) {
+          return { ...ef, uploadStatus: 'aborted' };
+        } else return { ...ef };
+      }),
+    );
+  };
+  const handleCancel = (id) => {
+    setExtFiles(
+      extFiles.map((ef) => {
+        if (ef.id === id) {
+          return { ...ef, uploadStatus: undefined };
+        } else return { ...ef };
+      }),
+    );
+  };
   return (
-    <div>
-      <FilePond
-        allowMultiple={true}
-        onprocessfile={handleProcessFile}
-        server="/api/upload"
-        name="files"
-      />
-      <Slider {...settings}>
-        {files.map((file, index) => (
-          <div key={index}>
-            <img src={URL.createObjectURL(file)} style={{ width: '100%' }} />
-          </div>
+    <div className="flex items-center justify-center">
+      <Dropzone
+        onChange={updateFiles}
+        minHeight="40vh"
+        value={extFiles}
+        footer={false}
+        header={false}
+        accept="image/*, video/*"
+        maxFiles={1}
+        label="사진을 업로드해주세요"
+        uploadConfig={{
+          // autoUpload: true
+          url: BASE_URL + '/file',
+          cleanOnUpload: true,
+        }}
+        onUploadStart={handleStart}
+        onUploadFinish={handleFinish}
+        fakeUpload
+        style={{
+          width: '80vw',
+          backgroundColor: '#EEE4D2',
+          border: 'solid 2px #e0e0e0',
+        }}
+      >
+        {extFiles.map((file) => (
+          <FileMosaic
+            {...file}
+            key={file.id}
+            onDelete={onDelete}
+            onAbort={handleAbort}
+            onCancel={handleCancel}
+            backgroundBlurImage={false}
+            alwaysActive
+            preview
+            style={{
+              width: '80dvw',
+              height: '400px',
+              backgroundImage: 'none',
+              backgroundColor: 'transparent',
+            }}
+          />
         ))}
-      </Slider>
+      </Dropzone>
     </div>
   );
 }
-
-export default MyFilePond;
