@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import {
   GoogleMap,
   Marker,
@@ -28,6 +28,10 @@ function GoogleMapComponent({ center }) {
     zipcode: '',
     details: '',
   });
+
+  useEffect(() => {
+    console.log(address);
+  }, [address]);
 
   const getAddressFromLatLng = async (lat, lng) => {
     try {
@@ -62,6 +66,7 @@ function GoogleMapComponent({ center }) {
     const places = searchBoxRef.current.getPlaces();
     if (places && places.length > 0) {
       const place = places[0];
+      console.log('place: ', place);
 
       if (place.geometry) {
         const newLocation = {
