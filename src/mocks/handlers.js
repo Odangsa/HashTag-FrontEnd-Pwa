@@ -48,7 +48,7 @@ export const handlers = [
             '감성',
           ],
 
-          title: '장소가 관련된 태그',
+          title: '장소와 관련된 태그',
         },
         {
           id: 4,
