@@ -1,0 +1,85 @@
+body {
+    background-color: #FFF5E1;
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  /* 이미지크기 navbar 크기로 조정 */
+  .logo {
+    width: 100%;
+    max-width: 100px;
+  }
+  
+  .navbar {
+    display: flex;
+    width: 100%;
+    color: white;
+  }
+  
+   div {
+    box-sizing: border-box;
+   }
+  
+   .inner-background {
+    width: 90%;
+    height: fit-content;
+    background-color: #EEE4D2;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+   }
+  
+   .item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontally center */
+    /* align-items: left;  */
+   }
+  
+   .above-item {
+    margin: 10px;
+    padding: 5px;
+    background-color: #faf3e6;
+    color: #655D53;
+    border-radius: 5px;
+  }
+  
+  .below-item {
+    margin: 10px;
+    padding: 5px;
+    background-color: #655D53;
+    border-radius: 5px;
+    border: #2F2924;
+    color: #fff;
+  }
+  
+  .CopyBtn-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+  }
+  
+  .CopyButton {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #2F2924; /* Change button background color */
+    color: #fff; /* Change button text color */
+    border: none; /* Remove button border */
+  }
+  
+  .CopyButton:hover {
+    background-color: #5f534a; /* Change button background color on hover */
+  }
+  
+  hr {
+    margin-top: 20px;
+    width: 90%;
+    height: 0.5px;
+    background-color: #8e9093;
+    border: 0;
+  }
