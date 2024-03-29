@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "mock": "npx tsx watch ./src/mocks/http.ts"
+    "mock": "npx tsx watch ./src/mocks/http.js"
   },
   "dependencies": {
     "@dropzone-ui/react": "^7.0.4",
