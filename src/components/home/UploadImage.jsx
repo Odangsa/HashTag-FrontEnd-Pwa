@@ -43,7 +43,7 @@ export default function ImageUploader() {
       <div className="flex flex-col items-center justify-center">
         <Dropzone
           onChange={updateFiles}
-          minHeight="30vh"
+          minHeight="50vh"
           value={extFiles}
           footer={false}
           header={false}
@@ -75,10 +75,8 @@ export default function ImageUploader() {
               alwaysActive
               preview
               style={{
-                width: '80dvw',
-                height: '400px',
-                backgroundImage: 'none',
-                backgroundColor: 'transparent',
+                width: '80vw',
+                height: '45vh',
               }}
             />
           ))}
