@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const InputStore = create((set) => ({
-  imageData: null,
+  imageData: [],
   address: {
     country: '',
     state: '',
@@ -10,6 +10,8 @@ const InputStore = create((set) => ({
     zipcode: '',
     details: '',
   },
+  test: '',
+  setTest: (test) => set((state) => ({ test })),
   setAddress: (address) => set((state) => ({ address })),
   setImageData: (imageData) => set((state) => ({ imageData })),
 }));

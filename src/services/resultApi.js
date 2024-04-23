@@ -1,8 +1,8 @@
 import { api } from '../lib/api';
 
-export const postFormData = async (formData) => {
+export const getHashtagList = async (userId) => {
   try {
-    const response = await api.post('/upload', formData);
+    const response = await api.get(`/${userId}/hashtag`);
     return response.data;
   } catch (error) {
     console.error(error);

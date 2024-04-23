@@ -1,19 +1,31 @@
-import { useState } from 'react';
+// Group.js
 import './App.css';
+import useCopyStore from '../../store/useCopyStore';
 
-export default function Group(){
+const Group = () => {
+  const { copyList, deleteCopyList, addHashtag } = useCopyStore();
 
-    const [GroupHashtags, setGroupHashtags] = useState(['#인기해시태그1', '#인기2', '#해시태그3', '#인기해시태그4', '#인기해시태그5', '#인기해시태그6','#인기해시태그7']);
-  
-    return (
-      <div className='inner-background'>
-        <div className='item-container'>
-          {GroupHashtags.map((hashtag, index) => (
-            <div key={index} className='above-item'>
-              {hashtag}
-            </div>
+  const handleCancelHashtag = (hashtag) => {
+    deleteCopyList(hashtag);
+    addHashtag(hashtag[0], hashtag[1]);
+  };
+
+  return (
+    <div className="inner-background">
+      <div className="min-h-48 w-full bg-primary">
+        {copyList.length > 0 &&
+          copyList.map((hashtag, index) => (
+            <button
+              key={index}
+              className="above-item"
+              onClick={() => handleCancelHashtag(hashtag)}
+            >
+              #{hashtag[1]}
+            </button>
           ))}
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
+};
+
+export default Group;

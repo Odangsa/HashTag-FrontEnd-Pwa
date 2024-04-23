@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const axiosRequestConfig = {
-  baseURL: `${import.meta.env.VITE_API_BASE_URL}`,
+  baseURL: API_BASE_URL,
   responseType: 'json',
 };
 

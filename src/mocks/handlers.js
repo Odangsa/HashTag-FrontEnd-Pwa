@@ -33,7 +33,6 @@ export const handlers = [
             '카페',
             '감성',
           ],
-
           title: 'ai가 추천한 태그',
         },
         {
@@ -61,7 +60,6 @@ export const handlers = [
             '카페',
             '감성',
           ],
-
           title: '사람들이 가장 많이 단 태그',
         },
       ],

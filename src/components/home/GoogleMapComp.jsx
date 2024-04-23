@@ -6,6 +6,7 @@ import {
   StandaloneSearchBox,
 } from '@react-google-maps/api';
 import axios from 'axios';
+import InputStore from '../../store/InputStore';
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
@@ -20,14 +21,7 @@ function GoogleMapComponent({ center }) {
   const [location, setLocation] = useState(center);
   const searchBoxRef = useRef(null);
   const [searchBoxValue, setSearchBoxValue] = useState('');
-  const [address, setAddress] = useState({
-    country: '',
-    state: '',
-    city: '',
-    street: '',
-    zipcode: '',
-    details: '',
-  });
+  const { setAddress, address, setTest } = InputStore();
 
   useEffect(() => {
     console.log(address);
@@ -88,7 +82,10 @@ function GoogleMapComponent({ center }) {
   };
 
   const processAddressComponents = (components, formattedAddress) => {
+    setTest(formattedAddress);
+    console.log('formattedAddress: ', formattedAddress);
     const parts = formattedAddress.split(' ');
+    console.log('parts: ', parts);
 
     const addressState = {
       country: '',
@@ -142,6 +139,13 @@ function GoogleMapComponent({ center }) {
     setSearchBoxValue(address); // Update the search box value
   };
 
+  // const fetchKakaoMapPlaceDetail = async (lat, lng) => {
+  //   // 카카오맵 API를 호출하여 장소의 상세 정보를 가져옵니다.
+  //   // 이 예제에서는 단순히 console.log로 출력합니다. 실제로는 API 호출 코드를 작성해야 합니다.
+  //   console.log(`카카오맵에서 ${lat}, ${lng}의 상세 정보를 검색합니다.`);
+  //   // 예: axios.get(`https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`, {headers: {Authorization: `KakaoAK ${YOUR_KAKAO_API_KEY}`}})
+  // };
+
   return (
     <>
       <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY} libraries={libraries}>
@@ -164,7 +168,7 @@ function GoogleMapComponent({ center }) {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={location}
-              zoom={50}
+              zoom={16}
               onClick={handleMapClick}
             >
               <Marker position={location} />
