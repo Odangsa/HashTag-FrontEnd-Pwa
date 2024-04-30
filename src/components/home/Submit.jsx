@@ -8,10 +8,18 @@ export const SubmitBtn = () => {
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('place', test);
+    const addressData = JSON.stringify({ test });
+    formData.append(
+      'place',
+      // new Blob([addressData], { type: 'application/json' }),
+      test,
+    );
     console.log('address: ', test);
-    formData.append('picture', imageData);
-    console.log('imageData: ', imageData);
+    formData.append('picture', imageData[0].file);
+
+    for (const x of formData) {
+      console.log(x);
+    }
 
     try {
       const response = await api.post('/1/hashtag', formData);
