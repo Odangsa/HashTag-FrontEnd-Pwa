@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getHashtagList } from '../services/resultApi';
 import HashtagBox from '../components/result/HashtagBox';
-import Group from '../components/result/Group';
 import useCopyStore from '../store/useCopyStore';
+import CopyListLayout from '../components/result/CopyListLayout';
 
 const ResultPage = () => {
   const userId = useParams().userId;
@@ -30,11 +30,11 @@ const ResultPage = () => {
   }
 
   return (
-    <div className="App">
+    <div className="flex flex-col">
       <div className="navbar">
         <img className="logo" src={logo} alt="Logo" />
       </div>
-      <Group />
+      <CopyListLayout />
       <div className="h-[calc(100dvh-350px)] overflow-y-scroll">
         {hashtagList.map((hashtag, index) => (
           <HashtagBox key={index} hashtag={hashtag} />
