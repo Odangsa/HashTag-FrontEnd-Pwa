@@ -5,11 +5,10 @@ import ImageUploader from '../components/home/UploadImage.jsx';
 
 const HomePage = () => {
   return (
-    <div className="flex h-screen flex-col">
-      <div className="h-dvh">
+    <div className="flex h-screen flex-col justify-between">
+      <div className="flex-1 overflow-y-auto">
         <Navbar />
         <ImageUploader />
-        {/* <RealtimePlaceSearch /> */}
         <GoogleMapComponent />
       </div>
       <SubmitBtn />

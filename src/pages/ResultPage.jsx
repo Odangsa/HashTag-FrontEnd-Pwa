@@ -1,38 +1,45 @@
+// ResultPage.js
 import logo from '../assets/icon-256x256.png';
 import '../components/result/App.css';
-import Group from '../components/result/Group';
-import CopyButton from '../components/result/CopyButton';
-import Popular from '../components/result/Popular';
-import Place from '../components/result/Place';
-import AI from '../components/result/AI';
-import { api } from '../lib/api';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getHashtagList } from '../services/resultApi';
+import HashtagBox from '../components/result/HashtagBox';
+import useCopyStore from '../store/useCopyStore';
+import CopyListLayout from '../components/result/CopyListLayout';
 
 const ResultPage = () => {
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await api.get('/1/hashtag');
-      console.log('response', response.data);
-    };
+  const userId = useParams().userId;
+  const { hashtagList, setHashtagList } = useCopyStore();
 
-    fetchData();
-  }, []);
+  const { isLoading, error } = useQuery({
+    queryKey: ['result', userId],
+    queryFn: async () => {
+      const data = await getHashtagList(userId);
+      setHashtagList(data.results);
+      return data;
+    },
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error...</div>;
+  }
 
   return (
-    <div className="App">
+    <div className="flex flex-col">
       <div className="navbar">
-        <img className="logo" src={logo}></img>
+        <img className="logo" src={logo} alt="Logo" />
       </div>
-      <Group />
-      <CopyButton />
-      <hr />
-      <Popular />
-      <br style={{ marginTop: '50px' }} />
-      <Place />
-      <br style={{ marginTop: '50px' }} />
-      <AI />
-      <br />
-      <br />
+      <CopyListLayout />
+      <div className="h-[calc(100dvh-350px)] overflow-y-scroll">
+        {hashtagList.map((hashtag, index) => (
+          <HashtagBox key={index} hashtag={hashtag} />
+        ))}
+      </div>
     </div>
   );
 };

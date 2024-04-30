@@ -1,17 +1,18 @@
 import { Dropzone, FileMosaic } from '@files-ui/react';
 import * as React from 'react';
+import InputStore from '../../store/InputStore';
 
 const BASE_URL = 'https://www.myserver.com';
 
 export default function ImageUploader() {
-  const [extFiles, setExtFiles] = React.useState([]);
+  const { imageData, setImageData } = InputStore();
 
   const updateFiles = (incommingFiles) => {
     console.log('incomming files', incommingFiles);
-    setExtFiles(incommingFiles);
+    setImageData(incommingFiles);
   };
   const onDelete = (id) => {
-    setExtFiles(extFiles.filter((x) => x.id !== id));
+    setImageData(imageData.filter((x) => x.id !== id));
   };
   const handleStart = (filesToUpload) => {
     console.log('advanced demo start upload', filesToUpload);
@@ -20,8 +21,8 @@ export default function ImageUploader() {
     console.log('advanced demo finish upload', uploadedFiles);
   };
   const handleAbort = (id) => {
-    setExtFiles(
-      extFiles.map((ef) => {
+    setImageData(
+      imageData.map((ef) => {
         if (ef.id === id) {
           return { ...ef, uploadStatus: 'aborted' };
         } else return { ...ef };
@@ -29,8 +30,8 @@ export default function ImageUploader() {
     );
   };
   const handleCancel = (id) => {
-    setExtFiles(
-      extFiles.map((ef) => {
+    setImageData(
+      imageData.map((ef) => {
         if (ef.id === id) {
           return { ...ef, uploadStatus: undefined };
         } else return { ...ef };
@@ -43,8 +44,8 @@ export default function ImageUploader() {
       <div className="flex flex-col items-center justify-center">
         <Dropzone
           onChange={updateFiles}
-          minHeight="30vh"
-          value={extFiles}
+          minHeight="40vh"
+          value={imageData}
           footer={false}
           header={false}
           accept="image/*, video/*"
@@ -64,7 +65,7 @@ export default function ImageUploader() {
             border: 'solid 2px #e0e0e0',
           }}
         >
-          {extFiles.map((file) => (
+          {imageData.map((file) => (
             <FileMosaic
               {...file}
               key={file.id}
@@ -75,10 +76,8 @@ export default function ImageUploader() {
               alwaysActive
               preview
               style={{
-                width: '80dvw',
-                height: '400px',
-                backgroundImage: 'none',
-                backgroundColor: 'transparent',
+                width: '80vw',
+                height: '45vh',
               }}
             />
           ))}
