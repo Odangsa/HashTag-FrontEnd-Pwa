@@ -21,7 +21,16 @@ const useCopyStore = create((set) => ({
     })),
   addAllHashtags: (title) =>
     set((state) => {
-      console.log('addAllHashtags');
+      const target = state.hashtagList.find((item) => item.title === title);
+      return {
+        copyList: [
+          ...state.copyList,
+          ...target.hashtagList.map((tag) => [title, tag]),
+        ],
+        hashtagList: state.hashtagList.map((item) =>
+          item.title === title ? { ...item, hashtagList: [] } : item,
+        ),
+      };
     }),
   deleteHashtag: (title, hashtag) =>
     set((state) => ({
