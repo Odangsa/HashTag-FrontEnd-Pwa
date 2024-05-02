@@ -34,7 +34,7 @@ const ResultPage = () => {
       <div className="navbar">
         <img className="logo" src={logo} alt="Logo" />
       </div>
-      {/* <CopyListLayout /> */}
+      <CopyListLayout />
       <div className="h-[calc(100dvh-350px)] overflow-y-scroll">
         {hashtagList.map((hashtag, index) => (
           <HashtagBox key={index} hashtag={hashtag} />
