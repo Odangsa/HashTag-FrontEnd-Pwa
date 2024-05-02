@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "mock": "npx tsx watch ./src/mocks/http.js"
@@ -57,6 +57,6 @@
     "prettier": "3.2.5",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6",
-    "vite-plugin-pwa": "^0.19.2"
+    "vite-plugin-pwa": "^0.19.8"
   }
 }
