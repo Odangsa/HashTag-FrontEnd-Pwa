@@ -64,7 +64,7 @@ function KakaoMapComponent({ center }) {
     }
   };
 
-  const processAddressComponents = (components, formattedAddress) => {
+  const processAddressComponents = (components) => {
     const addressState = {
       country: '대한민국',
       state: components.region_1depth_name,
