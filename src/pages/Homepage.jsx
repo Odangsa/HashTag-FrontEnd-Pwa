@@ -1,4 +1,4 @@
-import GoogleMapComponent from '../components/home/GoogleMapComp.jsx';
+// import GoogleMapComponent from '../components/home/GoogleMapComp.jsx';
 import Navbar from '../components/home/Navbar.jsx';
 import { SubmitBtn } from '../components/home/Submit.jsx';
 import ImageUploader from '../components/home/UploadImage.jsx';
@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="flex-1 overflow-y-auto">
         <Navbar />
         <ImageUploader />
-        <GoogleMapComponent />
+        {/* <GoogleMapComponent /> */}
       </div>
       <SubmitBtn />
     </div>
