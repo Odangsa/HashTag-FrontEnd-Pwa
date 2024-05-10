@@ -1,6 +1,6 @@
 // import GoogleMapComponent from '../components/home/GoogleMapComp.jsx';
 import Navbar from '../components/home/Navbar.jsx';
-// import { SubmitBtn } from '../components/home/Submit.jsx';
+import { SubmitBtn } from '../components/home/Submit.jsx';
 import ImageUploader from '../components/home/UploadImage.jsx';
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
         <ImageUploader />
         {/* <GoogleMapComponent /> */}
       </div>
-      {/* <SubmitBtn /> */}
+      <SubmitBtn />
     </div>
   );
 };
