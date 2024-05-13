@@ -2,8 +2,7 @@ name: build and deploy
 
 on:
   push:
-    branches:
-      - deploy
+    branches: 'deploy'
 
 jobs:
   Deploy:
@@ -15,6 +14,8 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
