@@ -7,6 +7,7 @@ const HomePage = () => {
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex-1 overflow-y-auto">
+        <div>adsad</div>
         {/* <Navbar /> */}
         <ImageUploader />
         {/* <GoogleMapComponent /> */}
