@@ -8,4 +8,13 @@ const applyPWAInProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
   plugins: [react(), applyPWAInProduction ? VitePWA(PWAConfig) : []],
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://52.79.178.162:8080', // 실제 API 서버 주소
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //   },
+  // },
 });

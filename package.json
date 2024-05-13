@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "mock": "npx tsx watch ./src/mocks/http.ts"
+    "mock": "npx tsx watch ./src/mocks/http.js"
   },
   "dependencies": {
+    "@dropzone-ui/react": "^7.0.4",
     "@mswjs/http-middleware": "^0.9.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-google-maps/api": "^2.19.3",
     "@tanstack/react-query": "^5.28.0",
     "@tanstack/react-query-devtools": "^5.28.0",
     "antd-mobile": "^5.34.0",
@@ -24,7 +26,11 @@
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-filepond": "^7.1.2",
+    "react-image-crop": "^11.0.5",
+    "react-kakao-maps-sdk": "^1.1.26",
     "react-router-dom": "^6.22.3",
+    "react-slick": "^0.30.2",
     "react-toastify": "^10.0.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
@@ -51,6 +57,6 @@
     "prettier": "3.2.5",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6",
-    "vite-plugin-pwa": "^0.19.2"
+    "vite-plugin-pwa": "^0.19.8"
   }
 }
