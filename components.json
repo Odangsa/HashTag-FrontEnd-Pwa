@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
   "rsc": false,
-  "jsx": true,
+  "tsx": false,
   "tailwind": {
     "config": "tailwind.config.js",
     "css": "src/global.css",
@@ -11,7 +11,7 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "/components",
+    "components": "@/components",
     "utils": "@/lib/utils"
   }
 }
