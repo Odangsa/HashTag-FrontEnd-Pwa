@@ -2,14 +2,12 @@ import { Dropzone, FileMosaic } from '@files-ui/react';
 import * as React from 'react';
 import InputStore from '../../store/InputStore';
 
-const BASE_URL = 'https://www.myserver.com';
-
 export default function ImageUploader() {
   const { imageData, setImageData } = InputStore();
 
-  const updateFiles = (incommingFiles) => {
-    console.log('incomming files', incommingFiles);
-    setImageData(incommingFiles);
+  const updateFiles = (inComingFiles) => {
+    console.log('InComing files', inComingFiles);
+    setImageData(inComingFiles);
   };
   const onDelete = (id) => {
     setImageData(imageData.filter((x) => x.id !== id));
@@ -51,11 +49,6 @@ export default function ImageUploader() {
           accept="image/*, video/*"
           maxFiles={1}
           label="사진을 업로드해주세요"
-          uploadConfig={{
-            // autoUpload: true
-            url: BASE_URL + '/file',
-            cleanOnUpload: true,
-          }}
           onUploadStart={handleStart}
           onUploadFinish={handleFinish}
           fakeUpload

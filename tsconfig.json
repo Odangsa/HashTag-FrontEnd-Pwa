@@ -1,4 +1,6 @@
 {
+  "include": ["src"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -15,8 +17,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "files": ["tsconfig.node.json"]
+    "outDir": "dist",
+    "baseUrl": ".", // This must be set to use paths
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
 }

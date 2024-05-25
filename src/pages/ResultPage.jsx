@@ -7,6 +7,7 @@ import { getHashtagList } from '../services/resultApi';
 import HashtagBox from '../components/result/HashtagBox';
 import useCopyStore from '../store/useCopyStore';
 import CopyListLayout from '../components/result/CopyListLayout';
+import LoadingPage from './LoadingPage';
 
 const ResultPage = () => {
   const userId = useParams().userId;
@@ -21,8 +22,11 @@ const ResultPage = () => {
     },
   });
 
+  console.log('hashtagList: ', hashtagList);
+
   if (isLoading) {
-    return <div>Loading...</div>;
+    console.log('isLoading: ', isLoading);
+    return <LoadingPage />;
   }
 
   if (error) {
