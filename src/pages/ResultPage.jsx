@@ -24,7 +24,7 @@ const ResultPage = () => {
 
   console.log('hashtagList: ', hashtagList);
 
-  if (isLoading) {
+  if (isLoading || !hashtagList) {
     console.log('isLoading: ', isLoading);
     return <LoadingPage />;
   }

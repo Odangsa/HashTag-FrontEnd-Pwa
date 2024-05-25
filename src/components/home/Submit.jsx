@@ -19,7 +19,7 @@ export const SubmitBtn = () => {
     }
 
     try {
-      navigate(`/result/${newUUID}`);
+      // navigate(`/result/${newUUID}`);
       const response = await api.post(`/${newUUID}/hashtag`, formData);
       console.log('Server response:', response.data);
     } catch (error) {
