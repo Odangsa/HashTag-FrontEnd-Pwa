@@ -5,9 +5,9 @@ import InputStore from '../../store/InputStore';
 export default function ImageUploader() {
   const { imageData, setImageData } = InputStore();
 
-  const updateFiles = (incommingFiles) => {
-    console.log('incomming files', incommingFiles);
-    setImageData(incommingFiles);
+  const updateFiles = (inComingFiles) => {
+    console.log('InComing files', inComingFiles);
+    setImageData(inComingFiles);
   };
   const onDelete = (id) => {
     setImageData(imageData.filter((x) => x.id !== id));

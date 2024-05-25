@@ -1,22 +1,23 @@
 import InputStore from '../../store/InputStore';
 import { api } from '../../lib/api';
-// import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 export const SubmitBtn = () => {
-  const { address, imageData } = InputStore();
-  console.log('address, imageData: ', address, imageData);
+  const { imageData } = InputStore();
+  console.log('imageData: ', imageData);
 
   const handleSubmit = async () => {
     const formData = new FormData();
     formData.append('picture', imageData[0].file);
-    console.log('formData:', formData);
+
+    const newUUID = uuidv4().replace(/-/g, '');
 
     for (const x of formData) {
       console.log(x);
     }
 
     try {
-      const response = await api.post('/1/hashtag', formData);
+      const response = await api.post(`/${newUUID}/hashtag`, formData);
       console.log('Server response:', response.data);
     } catch (error) {
       console.error('Upload error:', error);
