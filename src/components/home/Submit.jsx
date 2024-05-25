@@ -1,10 +1,12 @@
 import InputStore from '../../store/InputStore';
 import { api } from '../../lib/api';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
 export const SubmitBtn = () => {
   const { imageData } = InputStore();
   console.log('imageData: ', imageData);
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -17,6 +19,7 @@ export const SubmitBtn = () => {
     }
 
     try {
+      navigate(`/result/${newUUID}`);
       const response = await api.post(`/${newUUID}/hashtag`, formData);
       console.log('Server response:', response.data);
     } catch (error) {
