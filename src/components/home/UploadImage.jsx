@@ -2,8 +2,6 @@ import { Dropzone, FileMosaic } from '@files-ui/react';
 import * as React from 'react';
 import InputStore from '../../store/InputStore';
 
-const BASE_URL = 'https://www.myserver.com';
-
 export default function ImageUploader() {
   const { imageData, setImageData } = InputStore();
 
@@ -51,11 +49,6 @@ export default function ImageUploader() {
           accept="image/*, video/*"
           maxFiles={1}
           label="사진을 업로드해주세요"
-          uploadConfig={{
-            // autoUpload: true
-            url: BASE_URL + '/file',
-            cleanOnUpload: true,
-          }}
           onUploadStart={handleStart}
           onUploadFinish={handleFinish}
           fakeUpload
