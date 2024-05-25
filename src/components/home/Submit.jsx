@@ -1,21 +1,15 @@
 import InputStore from '../../store/InputStore';
 import { api } from '../../lib/api';
-import axios from 'axios';
+// import axios from 'axios';
 
 export const SubmitBtn = () => {
-  const { address, imageData, test } = InputStore();
+  const { address, imageData } = InputStore();
   console.log('address, imageData: ', address, imageData);
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    const addressData = JSON.stringify({ test });
-    formData.append(
-      'place',
-      // new Blob([addressData], { type: 'application/json' }),
-      test,
-    );
-    console.log('address: ', test);
     formData.append('picture', imageData[0].file);
+    console.log('formData:', formData);
 
     for (const x of formData) {
       console.log(x);
