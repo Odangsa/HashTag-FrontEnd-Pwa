@@ -36,7 +36,7 @@ export default function ImageUploader() {
       <h4 className="my-4 w-full px-14 text-left text-2xl font-bold">Image</h4>
       <div
         {...getRootProps()}
-        className="relative flex h-[40vh] w-[80vw] cursor-pointer flex-col items-center justify-center border-2 border-dashed border-gray-300 bg-[#EEE4D2] p-4"
+        className="relative flex h-[60vh] w-[80vw] cursor-pointer flex-col items-center justify-center border-2 border-dashed border-gray-300 bg-[#EEE4D2] p-4"
       >
         <input {...getInputProps()} />
         {imageData.length === 0 ? (
@@ -55,9 +55,9 @@ export default function ImageUploader() {
                   e.stopPropagation();
                   onDelete(file.id);
                 }}
-                className="absolute right-2 top-2 rounded bg-red-500 p-1 text-white"
+                className="absolute right-2 top-2 rounded-full bg-primary px-2 text-black"
               >
-                Delete
+                X
               </button>
             </div>
           ))

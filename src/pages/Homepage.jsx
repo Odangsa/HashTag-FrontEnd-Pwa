@@ -4,6 +4,8 @@ import { SubmitBtn } from '../components/home/Submit.jsx';
 import ImageUploader from '../components/home/UploadImage.jsx';
 
 const HomePage = () => {
+  localStorage.clear();
+
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex-1 overflow-y-auto">
