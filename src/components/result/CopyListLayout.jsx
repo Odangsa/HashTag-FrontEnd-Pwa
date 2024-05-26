@@ -1,9 +1,7 @@
+// Group.js
 import './App.css';
 import useCopyStore from '../../store/useCopyStore';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-toast.configure();
 
 const CopyListLayout = () => {
   const { copyList, deleteCopyList, addHashtag } = useCopyStore();
