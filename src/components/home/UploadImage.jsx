@@ -29,8 +29,8 @@ export default function ImageUploader() {
   });
 
   useEffect(() => {
-    console.log('imageData', imageData);
-  }, [imageData]);
+    setImageData([]);
+  }, [setImageData]);
   return (
     <div className="flex flex-col items-center justify-center">
       <h4 className="my-4 w-full px-14 text-left text-2xl font-bold">Image</h4>

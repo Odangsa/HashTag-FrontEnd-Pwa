@@ -8,8 +8,9 @@ import HashtagBox from '../components/result/HashtagBox';
 import useCopyStore from '../store/useCopyStore';
 import CopyListLayout from '../components/result/CopyListLayout';
 import LoadingPage from './LoadingPage';
-import ErrorPage from './ErrorPage';
+// import ErrorPage from './ErrorPage';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const ResultPage = () => {
   const userId = useParams().userId;
@@ -18,7 +19,8 @@ const ResultPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const data = localStorage.getItem('hashtagList');
+    setHashtagList([]); // 해시태그 리스트 초기화
+    const data = localStorage.getItem('hashtagList'); // 로컬스토리지에서 해시태그 리스트 가져오기
     if (data) {
       setHashtagList(JSON.parse(data));
     }
@@ -42,7 +44,10 @@ const ResultPage = () => {
   }
 
   if (error && hashtagList.length === 0) {
-    return <ErrorPage />;
+    navigate('/');
+    toast('해시태그를 불러오는데 실패했습니다', {
+      type: 'error',
+    });
   }
 
   const handleClick = () => {

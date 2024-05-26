@@ -11,7 +11,7 @@ const CopyListLayout = () => {
     console.log('copyTarget: ', copyTarget);
     try {
       await navigator.clipboard.writeText(copyTarget);
-      toast('Copied to clipboard', { type: 'success' });
+      toast('복사 성공!', { type: 'success' });
     } catch (error) {
       console.error('Failed to copy: ', error);
     }
