@@ -1,18 +1,20 @@
 // Group.js
 import './App.css';
 import useCopyStore from '../../store/useCopyStore';
+import { toast } from 'react-toastify';
 
 const CopyListLayout = () => {
   const { copyList, deleteCopyList, addHashtag } = useCopyStore();
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     const copyTarget = copyList.map((hashtag) => `#${hashtag[1]}`).join(' ');
     console.log('copyTarget: ', copyTarget);
-    async () => {
-      await navigator.clipboard.writeText('hi').then(() => {
-        alert('Copied!');
-      });
-    };
+    try {
+      await navigator.clipboard.writeText(copyTarget);
+      toast('Copied to clipboard', { type: 'success' });
+    } catch (error) {
+      console.error('Failed to copy: ', error);
+    }
   };
 
   const handleCancelHashtag = (hashtag) => {
