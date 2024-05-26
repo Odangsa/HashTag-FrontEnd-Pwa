@@ -1,81 +1,68 @@
-import { Dropzone, FileMosaic } from '@files-ui/react';
-import * as React from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { useDropzone } from 'react-dropzone';
 import InputStore from '../../store/InputStore';
 
 export default function ImageUploader() {
   const { imageData, setImageData } = InputStore();
 
-  const updateFiles = (inComingFiles) => {
-    console.log('InComing files', inComingFiles);
-    setImageData(inComingFiles);
-  };
+  const onDrop = useCallback(
+    (file) => {
+      console.log('file: ', file);
+      const filesWithPreview = {
+        file,
+        preview: URL.createObjectURL(file[0]),
+        id: file[0].name,
+      };
+      setImageData([filesWithPreview]);
+    },
+    [setImageData],
+  );
+
   const onDelete = (id) => {
-    setImageData(imageData.filter((x) => x.id !== id));
+    setImageData(imageData.filter((file) => file.id !== id));
   };
-  const handleStart = (filesToUpload) => {
-    console.log('advanced demo start upload', filesToUpload);
-  };
-  const handleFinish = (uploadedFiles) => {
-    console.log('advanced demo finish upload', uploadedFiles);
-  };
-  const handleAbort = (id) => {
-    setImageData(
-      imageData.map((ef) => {
-        if (ef.id === id) {
-          return { ...ef, uploadStatus: 'aborted' };
-        } else return { ...ef };
-      }),
-    );
-  };
-  const handleCancel = (id) => {
-    setImageData(
-      imageData.map((ef) => {
-        if (ef.id === id) {
-          return { ...ef, uploadStatus: undefined };
-        } else return { ...ef };
-      }),
-    );
-  };
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: 'image/*',
+    multiple: false,
+  });
+
+  useEffect(() => {
+    console.log('imageData', imageData);
+  }, [imageData]);
   return (
-    <>
-      <h4 className="my-4 ml-[10.3vw] text-2xl font-bold">Image</h4>
-      <div className="flex flex-col items-center justify-center">
-        <Dropzone
-          onChange={updateFiles}
-          minHeight="40vh"
-          value={imageData}
-          footer={false}
-          header={false}
-          accept="image/*, video/*"
-          maxFiles={1}
-          label="사진을 업로드해주세요"
-          onUploadStart={handleStart}
-          onUploadFinish={handleFinish}
-          fakeUpload
-          style={{
-            width: '80vw',
-            backgroundColor: '#EEE4D2',
-            border: 'solid 2px #e0e0e0',
-          }}
-        >
-          {imageData.map((file) => (
-            <FileMosaic
-              {...file}
-              key={file.id}
-              onDelete={onDelete}
-              onAbort={handleAbort}
-              onCancel={handleCancel}
-              backgroundBlurImage={false}
-              alwaysActive
-              preview
-              style={{
-                width: '80vw',
-                height: '45vh',
-              }}
-            />
-          ))}
-        </Dropzone>
+    <div className="flex flex-col items-center justify-center">
+      <h4 className="my-4 w-full px-14 text-left text-2xl font-bold">Image</h4>
+      <div
+        {...getRootProps()}
+        className="relative flex h-[40vh] w-[80vw] cursor-pointer flex-col items-center justify-center border-2 border-dashed border-gray-300 bg-[#EEE4D2] p-4"
+      >
+        <input {...getInputProps()} />
+        {imageData.length === 0 ? (
+          <p>사진을 업로드해주세요</p>
+        ) : (
+          imageData.map((file) => (
+            <div key={file.id} className="relative size-full">
+              <img
+                src={file.preview}
+                alt={file.name}
+                className="size-full object-cover"
+                onLoad={() => URL.revokeObjectURL(file.preview)}
+              />
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(file.id);
+                }}
+                className="absolute right-2 top-2 rounded bg-red-500 p-1 text-white"
+              >
+                Delete
+              </button>
+            </div>
+          ))
+        )}
       </div>
-    </>
+    </div>
   );
 }

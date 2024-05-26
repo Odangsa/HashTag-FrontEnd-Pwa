@@ -10,7 +10,8 @@ export const SubmitBtn = () => {
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('picture', imageData[0].file);
+    formData.append('picture', imageData[0].file[0]);
+    console.log('formData: ', formData);
 
     const newUUID = uuidv4().replace(/-/g, '');
 
