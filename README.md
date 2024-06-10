@@ -51,8 +51,8 @@
 <td width="300" align="left">
 <div align='center'></div>
 <ul>
-<li>그래프 뷰 개발</li>
-<li>검색 기능 개발</li>
+<li>노션 지라 깃허브 연동</li>
+<li>aws ci/cd</li>
 <li>토론 기능 개발(목록,상세페이지)</li>
 <li>글 역사 페이지 개발</li>
 <li>신고 기능 개발</li>
@@ -61,6 +61,15 @@
 </ul>
 
 </td>
+<td width="300" align="left">
+<ul>
+<li>투표 개발(목록, 상세페이지)</li>
+<li>로그인 개발</li>
+<li>북마크, 배지, 알림 기능 개발</li>
+<li>팀: Github Actions, AWS EC2 활용 CI/CD 적용</li>
+</ul>
+</td>
+
 <td width="300" align="left">
 <ul>
 <li>투표 개발(목록, 상세페이지)</li>
@@ -85,6 +94,11 @@
 
 <a href="https://github.com/naringst">
 <img src="http://img.shields.io/badge/naringst-green?style=social&logo=github"/>
+</a>
+</td>
+<td width="100" align="center">
+<a href="https://github.com/LeeDahee23">
+<img src="http://img.shields.io/badge/LeeDahee23-green?style=social&logo=github"/>
 </a>
 </td>
 <td width="100" align="center">
