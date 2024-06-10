@@ -31,6 +31,17 @@
 ## 주요 기능
 
 - **사진 업로드 및 처리**: 사용자는 웹사이트를 통해 자신의 사진을 업로드할 수 있습니다.
+<img width="1004" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/7390e345-a61c-4e20-91b4-89dc08074d0a">
+<img width="1004" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/b2810f68-d5a6-45c9-9a62-ab9b942f8bdd">
+<img width="1005" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/70d785ba-d16e-44fc-9cc9-e3457345d79a">
+<img width="1003" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/b4e1703c-73f6-4505-809f-a8e391ad2030">
+<img width="1006" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/b96027f9-6bfb-468f-83df-25818df2fc13">
+<img width="1004" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/6c2248d5-b7af-430a-befe-ca94b5718470">
+<img width="1003" alt="image" src="https://github.com/Odangsa/HashTag-FrontEnd-Pwa/assets/53222742/3e8baedc-6fdb-4110-8034-c15e821c4aa7">
+
+
+
+
 - **해시태그 생성 알고리즘**: 업로드된 사진을 분석하여, 그 사진에 가장 어울리는 해시태그를 제안합니다.
 - **소셜 미디어 통합**: 추천받은 해시태그를 이용해 사진을 소셜 미디어에 직접 공유할 수 있습니다.
 
